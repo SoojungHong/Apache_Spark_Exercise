@@ -1,0 +1,24 @@
+Tip 
+
+1. run Scala jar application in Spark with PI example 
+
+Follow these steps to run the Spark Pi example:
+
+Log on as a user with Hadoop Distributed File System (HDFS) access: for example, your spark user, if you defined one, or hdfs.
+
+When the job runs, the library is uploaded into HDFS, so the user running the job needs permission to write to HDFS.
+
+Navigate to a node with a Spark client and access the spark-client directory:
+
+cd /usr/hdp/current/spark-client
+
+su spark
+
+Run the Apache Spark Pi job in yarn-client mode, using code from org.apache.spark:
+
+./bin/spark-submit --class org.apache.spark.examples.SparkPi --master yarn-client --num-executors 1 --driver-memory 512m --executor-memory 512m --executor-cores 1 lib/spark-examples*.jar 10
+
+
+2. from root of HDP sandbox
+su spark 
+./bin/spark-shell 
