@@ -22,3 +22,5 @@ Run the Apache Spark Pi job in yarn-client mode, using code from org.apache.spar
 2. from root of HDP sandbox
 su spark 
 ./bin/spark-shell 
+
+scala> val parqfile = sqlContext.read.parquet("hdfs:///user/shong/NZZ/nzzlive_2016-09-01.parquet")
