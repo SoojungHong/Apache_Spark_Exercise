@@ -1,0 +1,2 @@
+[1] How to add remote URL of Git Repository from local 
+git remote add origin http://IP/path/to/repository
