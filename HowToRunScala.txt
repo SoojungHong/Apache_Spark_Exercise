@@ -1,0 +1,17 @@
+-----------------------------------------
+  How to run Scala application in Spark 
+-----------------------------------------  
+
+
+```
+root@sandbox# cd /usr/hdp/current/spark-client
+root@sandbox spark-client# su spark
+spark@sandbox spark-client$ ./bin/spark-submit \
+ --class  ch.nzz.dnidatalayer.spark.UserProfiles \
+ --master yarn-client \
+ --num-executors 3 \
+ --driver-memory 512m \
+ --executor-memory 512m \
+ --executor-cores 1 \
+ /audienzz/nzz-dnidatalayer.jar
+```
