@@ -24,3 +24,27 @@ su spark
 ./bin/spark-shell 
 
 scala> val parqfile = sqlContext.read.parquet("hdfs:///user/shong/NZZ/nzzlive_2016-09-01.parquet")
+
+
+
+3. How to put jar file into Spark through HDP Sandbox 
+(3.1 First, from MINGW64)
+shong@ZUR-SHONG MINGW64 ~/IdeaProjects/HelloWorld/out/artifacts/helloworld_jar
+$ scp -P 2222 helloworld.jar root@127.0.0.1:/root
+root@127.0.0.1's password: (soojunghong) 
+helloworld.jar
+
+(3.2 putty to 127.0.0.1:2222 using root and password 'soojunghong') 
+[root@sandbox ~]# ls
+anaconda-ks.cfg  hdp             install.log                  sandbox.info
+blueprint.json   hello           install.log.syslog           start_ambari.sh
+build.out        helloworld.jar  nzz-algorithms_2.10-1.0.jar  start_hbase.sh
+derby.log        Hortonworks     nzz-algorithms.jar
+[root@sandbox ~]# cp helloworld.jar /usr/hdp/current/spark-client/
+cp: overwrite `/usr/hdp/current/spark-client/helloworld.jar'? y
+
+(3.3 locate to spark from root to spark-client) 
+root@sandbox#cd /usr/hdp/current/spark-client
+root@sandbox spark-client#su spark
+spark@sandbox spark-client$
+[spark@sandbox spark-client]$ ./bin/spark-submit --class com.helloworld.Hello --num-executors 3 --driver-memory 512m --executor-memory 512m --executor-cores 1 helloworld.jar
