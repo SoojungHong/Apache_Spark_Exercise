@@ -1,0 +1,42 @@
+=========================
+ Service Locator Example 
+=========================
+
+package ch.nzz.dnidatalayer.spark
+
+import java.net.URI
+
+import ch.nzz.dnidatalayer.spark.file.{FileFinder, HdfsUtils}
+import ch.nzz.dnidatalayer.spark.properties.Property.{CassandraHost, FileSystemUri, IngestionDirRoot, Property}
+import org.apache.hadoop.fs.FileSystem
+import org.apache.spark.sql.hive.HiveContext
+import org.apache.spark.{SparkConf, SparkContext}
+
+class ServiceLocator(val appName: String, val properties: Map[Property, Any]) {
+  lazy val conf: SparkConf = createConf()
+  lazy val sc: SparkContext = new SparkContext(conf)
+  lazy val sqlContext = new HiveContext(sc)
+
+  def hdfsUtils(fsUriProperty: Property) = new HdfsUtils(resolveFileSystem(fsUriProperty))
+
+  def fileFinder(ingestionDirRootProperty: Property, fsUriProperty: Property) =
+    new FileFinder(properties(ingestionDirRootProperty).toString, hdfsUtils(fsUriProperty))
+
+  def resolveFileSystem(fileSystemUriProperty: Property): FileSystem = {
+    properties.get(fileSystemUriProperty)
+      .map(value => FileSystem.get(URI.create(value.toString), sc.hadoopConfiguration))
+      .getOrElse(FileSystem.get(sc.hadoopConfiguration))
+  }
+
+  private def createConf(): SparkConf = {
+    var conf = new SparkConf()
+      .setAppName(appName)
+      .set("spark.network.timeout", "1000s")
+      .set("spark.sql.broadcastTimeout", "1000")
+
+    if (properties.get(CassandraHost).isDefined) {
+      conf = conf.set("spark.cassandra.connection.host", properties(CassandraHost).toString)
+    }
+    conf
+  }
+}
