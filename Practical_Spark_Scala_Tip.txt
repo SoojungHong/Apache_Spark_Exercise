@@ -50,3 +50,17 @@ root@sandbox#cd /usr/hdp/current/spark-client
 root@sandbox spark-client#su spark
 spark@sandbox spark-client$
 [spark@sandbox spark-client]$ ./bin/spark-submit --class com.helloworld.Hello --num-executors 3 --driver-memory 512m --executor-memory 512m --executor-cores 1 helloworld.jar
+
+
+
+==================================
+ Error : Invalid signature file 
+ =================================
+[spark@sandbox spark-client]$ ./bin/spark-submit --class ParquetExercise parquetexercise.jar                Exception in thread "main" java.lang.SecurityException: Invalid signature file digest for Manifest main attributes
+
+
+[root@sandbox spark-client]# zip -d parquetexercise.jar META-INF/*.RSA META-INF/*.DSA META-INF/*.SF
+deleting: META-INF/DUMMY.SF
+deleting: META-INF/DUMMY.DSA
+deleting: META-INF/ECLIPSEF.SF
+deleting: META-INF/ECLIPSEF.RSA
