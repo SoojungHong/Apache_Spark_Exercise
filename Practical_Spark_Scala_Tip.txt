@@ -64,3 +64,10 @@ deleting: META-INF/DUMMY.SF
 deleting: META-INF/DUMMY.DSA
 deleting: META-INF/ECLIPSEF.SF
 deleting: META-INF/ECLIPSEF.RSA
+
+
+===========================
+ Path where jar is located 
+===========================
+- if you browse Ambari browser, the jar file is located in hdfs:///user/spark/parquetexercise.jar
+- in this path, parquet file should be place. 
