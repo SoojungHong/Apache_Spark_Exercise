@@ -26,8 +26,10 @@ su spark
 scala> val parqfile = sqlContext.read.parquet("hdfs:///user/shong/NZZ/nzzlive_2016-09-01.parquet")
 
 
-
+===========================================================================
 3. How to put jar file into Spark through HDP Sandbox 
+   Using SSH, transfer the file from host machine (my machine) to HDP root
+===========================================================================
 (3.1 First, from MINGW64)
 shong@ZUR-SHONG MINGW64 ~/IdeaProjects/HelloWorld/out/artifacts/helloworld_jar
 $ scp -P 2222 helloworld.jar root@127.0.0.1:/root
