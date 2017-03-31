@@ -8,3 +8,12 @@ version := "1.0"
 scalaVersion := "2.10.5"
 libraryDependencies += "org.apache.spark" %% "spark-core" % "1.6.1"
 libraryDependencies += "org.apache.spark" %% "spark-sql" % "1.6.1"
+
+===================================
+2. When read parquet file locally 
+===================================
+ERROR Shell: Failed to locate the winutils binary in the hadoop binary path
+FIX > 
+1. Download Hadoop-common-2.2.0 and put bin folder which contains winutils.exe under C:\winutil\ 
+2. Then add property setting in the code like following
+   System.setProperty("hadoop.home.dir", "c:\\winutil\\")
