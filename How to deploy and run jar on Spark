@@ -1,0 +1,8 @@
+====================================
+  How to create Jar from IntelliJ
+====================================  
+1. Build from IntelliJ 
+2. Create Artifact 
+Project Structure -> Artifacts -> Add build (+)
+3. Menu 'Build' -> 'Build Artifacts...' 
+4. jar file is in the folder C:\Users\a613274\IdeaProjects\ParquetExerciseOnSpark\out\artifacts\parquetexerciseonspark_build_jar
