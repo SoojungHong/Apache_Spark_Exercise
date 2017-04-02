@@ -5,4 +5,28 @@
 2. Create Artifact 
 Project Structure -> Artifacts -> Add build (+)
 3. Menu 'Build' -> 'Build Artifacts...' 
-4. jar file is in the folder C:\Users\a613274\IdeaProjects\ParquetExerciseOnSpark\out\artifacts\parquetexerciseonspark_build_jar
+4. jar file is in the folder C:\Users\a613274\IdeaProjects\ParquetExerciseOnSpark\out\artifacts\parquetexerciseonspark_jar
+
+
+===================================================
+ move jar file to HDP (Hortonworks Data Platform)
+=================================================== 
+1. From MINGW64 and go to path where .jar file is located 
+$ scp -P 2222 parquetexerciseonspark.jar root@127.0.0.1:/root
+
+
+==================================================
+ copy jar file from root of HDP to spark-client 
+==================================================
+1. Putty to HDP 
+From puTTY, 127.0.0.1 port 2222 
+id : root
+pw : soojunghong 
+
+2. check jar file and copy to spark-client 
+cp <name>.jar /usr/hdp/current/spark-client/
+
+3. Put Parquet file through ambari UI
+
+4. run class 
+[spark@sandbox spark-client]$ ./bin/spark-submit --class com.exercise.ParquetExerciseOnSpark parquetexerciseonspark.jar
