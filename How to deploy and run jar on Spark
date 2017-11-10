@@ -14,6 +14,8 @@ Project Structure -> Artifacts -> Add build (+)
 1. From MINGW64 and go to path where .jar file is located 
 $ scp -P 2222 parquetexerciseonspark.jar root@127.0.0.1:/root
 
+(comment : If scp is not working on your computer, either use pscp command or install MINGW)
+
 
 ==================================================
  copy jar file from root of HDP to spark-client 
