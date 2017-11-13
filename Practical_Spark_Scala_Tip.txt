@@ -71,3 +71,8 @@ deleting: META-INF/ECLIPSEF.RSA
 ===========================
 - if you browse Ambari browser, the jar file is located in hdfs:///user/spark/parquetexercise.jar
 - in this path, parquet file should be place. 
+
+===============================================
+ How to check the file in hdfs from hdp root 
+===============================================
+[root@sandbox conf]# hadoop fs -ls hdfs://sandbox.hortonworks.com:8020/user/spark/<file_name>
