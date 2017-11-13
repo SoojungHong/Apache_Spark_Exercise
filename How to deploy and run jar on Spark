@@ -3,8 +3,13 @@
 ====================================  
 1. Build from IntelliJ 
 2. Create Artifact 
-Project Structure -> Artifacts -> Add build (+)
+To enable to 'Build' --> 'Build Artifact' 
+Go to Project Structure -> Artifacts -> Add build (+)
 3. Menu 'Build' -> 'Build Artifacts...' 
+Select JAR from Add drop down menu. Select "From modules with dependencies"
+Select main class.
+The radio button should be selecting "extract to the target JAR." Press OK.
+For the menu 'Directory for META-INF/MANIFESTMF, choose directory of source such as 'C:\Document\IdeaProjects\ProjectName\src
 4. jar file is in the folder C:\Users\a613274\IdeaProjects\ParquetExerciseOnSpark\out\artifacts\parquetexerciseonspark_jar
 
 
