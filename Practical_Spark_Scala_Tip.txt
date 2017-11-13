@@ -18,6 +18,9 @@ Run the Apache Spark Pi job in yarn-client mode, using code from org.apache.spar
 
 ./bin/spark-submit --class org.apache.spark.examples.SparkPi --master yarn-client --num-executors 1 --driver-memory 512m --executor-memory 512m --executor-cores 1 lib/spark-examples*.jar 10
 
+when this class uses text file such as in.txt, this file should be stored in /user/spark/in.txt
+And the output result file are stored in /user/spark/output/_SUCCESS 
+
 
 2. from root of HDP sandbox
 su spark 
