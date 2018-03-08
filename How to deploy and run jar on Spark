@@ -37,3 +37,12 @@ cp <name>.jar /usr/hdp/current/spark-client/
 
 4. run class 
 [spark@sandbox spark-client]$ ./bin/spark-submit --class com.exercise.ParquetExerciseOnSpark parquetexerciseonspark.jar
+
+
+================================================================================================================================
+When Error - Exception in thread "main" java.lang.SecurityException: Invalid signature file digest for Manifest main attributes
+Do, following on jar file 
+================================================================================================================================
+>zip -d cookingpeas.jar META-INF/*.RSA META-INF/*.DSA META-INF/*.SF
+
+
